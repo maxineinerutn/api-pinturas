@@ -27,7 +27,7 @@ app.get('/pinturas', (req, res) => res.json(pinturas));
 
 app.get('/pinturas/:id', (req, res) => {
   const pintura = pinturas.find(p => p.id === parseInt(req.params.id));
-  pintura ? res.json({"exito":true, "pintura":pintura}) : res.status(404).json({"exito":false, "mensaje":"Pintura no encontrada"});
+  pintura ? res.json({"exito":true, "pintura":pintura}) : res.status(299).json({"exito":false, "mensaje":"Pintura no encontrada"});
 });
 
 app.post('/pinturas', (req, res) => {
@@ -39,7 +39,7 @@ app.post('/pinturas', (req, res) => {
 
 app.put('/pinturas/:id', (req, res) => {
   const index = pinturas.findIndex(p => p.id === parseInt(req.params.id));
-  if (index === -1) return res.status(404).json({"exito":false, "mensaje":"Pintura no encontrada"});
+  if (index === -1) return res.status(299).json({"exito":false, "mensaje":"Pintura no encontrada"});
   pinturas[index] = { id: pinturas[index].id, ...req.body };
   guardarPinturas(pinturas);
   res.json({"exito":true, "pintura":pinturas[index]});
@@ -48,8 +48,9 @@ app.put('/pinturas/:id', (req, res) => {
 app.delete('/pinturas/:id', (req, res) => {
   pinturas = pinturas.filter(p => p.id !== parseInt(req.params.id));
   guardarPinturas(pinturas);
-  res.status(204).json({"exito":true, "mensaje":"Pintura eliminada"});
+  res.status(200).json({"exito":true, "mensaje":"Pintura eliminada"});
 });
 
-const PORT = process.env.PORT || 9876;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor de pinturas en puerto ${PORT}`));
+
