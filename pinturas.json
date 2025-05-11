@@ -1,4 +1,8 @@
 [
-  { "id": 1, "marca": "Sherwin-Williams", "precio": 150.5, "color": "Rojo", "cantidad": 10 },
-  { "id": 2, "marca": "Pinturas Alba", "precio": 120.0, "color": "Azul", "cantidad": 5 }
+  { "id": 1, "marca": "Sherwin-Williams", "precio": 250.5, "color": "#e60000", "cantidad": 10 },
+  { "id": 2, "marca": "Alba", "precio": 120.0, "color": "#3333cc", "cantidad": 50 },
+  { "id": 2, "marca": "Tersuave", "precio": 115.8, "color": "#ff33cc", "cantidad": 65 },
+  { "id": 2, "marca": "Alba Latex", "precio": 190.1, "color": "#339933", "cantidad": 72 },
+  { "id": 2, "marca": "Casa Blanca", "precio": 123.3, "color": "#ffffff", "cantidad": 256 },
+  { "id": 2, "marca": "Revear", "precio": 120.0, "color": "#ffff00", "cantidad": 9 }
 ]
