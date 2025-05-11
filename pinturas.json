@@ -1,0 +1,4 @@
+[
+  { "id": 1, "marca": "Sherwin-Williams", "precio": 150.5, "color": "Rojo", "cantidad": 10 },
+  { "id": 2, "marca": "Pinturas Alba", "precio": 120.0, "color": "Azul", "cantidad": 5 }
+]
