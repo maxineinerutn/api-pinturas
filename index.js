@@ -26,7 +26,7 @@ let pinturas = cargarPinturas();
 app.get('/pinturas', (req, res) => res.json(pinturas));
 
 app.get('/pinturas/:id', (req, res) => {
-  const pintura = pinturas.find(p => p.id === parseInt(req.params.id));
+  const pintura = pinturas.find(p => parseInt(p.id) === parseInt(req.params.id));
   pintura ? res.json({"exito":true, "pintura":pintura}) : res.status(299).json({"exito":false, "mensaje":"Pintura no encontrada"});
 });
 
@@ -38,7 +38,7 @@ app.post('/pinturas', (req, res) => {
 });
 
 app.put('/pinturas/:id', (req, res) => {
-  const index = pinturas.findIndex(p => p.id === parseInt(req.params.id));
+  const index = pinturas.findIndex(p => parseInt(p.id) === parseInt(req.params.id));
   if (index === -1) return res.status(299).json({"exito":false, "mensaje":"Pintura no encontrada"});
   pinturas[index] = { id: pinturas[index].id, ...req.body };
   guardarPinturas(pinturas);
@@ -46,11 +46,11 @@ app.put('/pinturas/:id', (req, res) => {
 });
 
 app.delete('/pinturas/:id', (req, res) => {
-  const index = pinturas.findIndex(p => p.id === parseInt(req.params.id));
+  const index = pinturas.findIndex(p => parseInt(p.id) === parseInt(req.params.id));
   if (index === -1){
     return res.status(299).json({"exito":false, "mensaje":"Pintura no encontrada"});
   }
-  pinturas = pinturas.filter(p => p.id !== parseInt(req.params.id));
+  pinturas = pinturas.filter(p => parseInt(p.id) !== parseInt(req.params.id));
   guardarPinturas(pinturas);
   res.status(200).json({"exito":true, "mensaje":"Pintura eliminada"});
 });
